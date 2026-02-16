@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 
 // ─── CONFIGURATION ───────────────────────────────────────────
 const AGENT_ID = "agent_1d8eb21274920d508d9077dc1b";
@@ -420,10 +421,10 @@ export default function Home() {
                 <div className="flex items-center gap-3">
                   <div
                     className={`w-3 h-3 rounded-full ${callState === "active"
-                        ? "bg-emerald-400 animate-pulse"
-                        : callState === "connecting"
-                          ? "bg-amber-400 animate-pulse"
-                          : "bg-white/20"
+                      ? "bg-emerald-400 animate-pulse"
+                      : callState === "connecting"
+                        ? "bg-amber-400 animate-pulse"
+                        : "bg-white/20"
                       }`}
                   />
                   <span className="font-display text-sm font-medium">
@@ -457,8 +458,14 @@ export default function Home() {
                   <div className="text-center space-y-6">
                     <div className="relative w-20 h-20 mx-auto">
                       <div className="absolute inset-0 rounded-full bg-amber-400/10 animate-ping opacity-20" />
-                      <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-amber-400/20 to-amber-600/20 border border-amber-400/20 flex items-center justify-center">
-                        <PhoneIcon className="w-8 h-8 text-amber-400" />
+                      <div className="relative w-20 h-20 rounded-full border border-amber-400/20 overflow-hidden flex items-center justify-center bg-gradient-to-br from-amber-400/20 to-amber-600/20">
+                        <Image
+                          src="/sam-headshot.png"
+                          alt="Sam"
+                          width={80}
+                          height={80}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     </div>
                     <div>
@@ -512,15 +519,21 @@ export default function Home() {
                     {/* Agent avatar + visualizer */}
                     <div className="flex flex-col items-center gap-3">
                       <div
-                        className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 ${isAgentTalking
-                            ? "bg-amber-400/20 border-2 border-amber-400/40 glow-active"
-                            : "bg-white/5 border border-white/10"
+                        className={`relative w-24 h-24 rounded-full overflow-hidden transition-all duration-300 ${isAgentTalking
+                          ? "border-2 border-amber-400 glow-active scale-110"
+                          : "border border-white/10"
                           }`}
                       >
-                        <SunIcon
-                          className={`w-7 h-7 transition-colors ${isAgentTalking ? "text-amber-400" : "text-white/30"
-                            }`}
+                        <Image
+                          src="/sam-headshot.png"
+                          alt="Sam"
+                          width={96}
+                          height={96}
+                          className="w-full h-full object-cover"
                         />
+                        {isAgentTalking && (
+                          <div className="absolute inset-0 bg-amber-400/10 animate-pulse pointer-events-none" />
+                        )}
                       </div>
                       <AudioVisualizer isAgentTalking={isAgentTalking} />
                       <p className="font-body text-xs text-white/40">
@@ -539,8 +552,8 @@ export default function Home() {
                           >
                             <div
                               className={`max-w-[85%] rounded-xl px-3 py-2 ${entry.role === "agent"
-                                  ? "bg-amber-400/10 text-white/80"
-                                  : "bg-white/10 text-white/70"
+                                ? "bg-amber-400/10 text-white/80"
+                                : "bg-white/10 text-white/70"
                                 }`}
                             >
                               <p className="font-body text-xs leading-relaxed">
