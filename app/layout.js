@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Trentham Electrical & Solar — AI Voice Assistant Demo",
+  title: "Trentham Electrical & Solar — AI Receptionist Demo",
   description:
-    "Try our AI voice assistant for Trentham Electrical & Solar. Ask about solar installations, electrical services, rebates, and more. Serving Hepburn Shire, Macedon Ranges & Central Victoria.",
+    "Demo: Meet Sam, the AI receptionist built for Trentham Electrical & Solar. Try the live voice assistant.",
   metadataBase: new URL("https://trentham.onrise.ai"),
   openGraph: {
     title: "Trentham Electrical & Solar — AI Voice Assistant",

@@ -280,10 +280,12 @@ export default function Home() {
   ];
 
   const suggestions = [
-    "What solar rebates are available?",
-    "Do you service Kyneton?",
-    "How much does a solar system cost?",
-    "Can you install EV chargers?",
+    "What solar rebates can I get?",
+    "Do you cover the Macedon Ranges?",
+    "I need a quote for a 10kW system",
+    "Can you install a heat pump?",
+    "What brands do you use?",
+    "I want to book a site visit",
   ];
 
   // ─── RENDER ────────────────────────────────────────────────
@@ -345,55 +347,63 @@ export default function Home() {
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card mb-6">
                 <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="font-body text-xs text-white/60">
-                  AI Voice Assistant — Available 24/7
+                  Live Demo — Built for Trentham Electrical & Solar
                 </span>
               </div>
 
               <h2 className="font-display text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight">
-                Talk to our
+                Hey Mick,
                 <br />
-                <span className="gradient-text">AI Assistant</span>
+                <span className="gradient-text">meet Sam.</span>
               </h2>
 
               <p className="font-body text-base text-white/50 mt-5 max-w-md leading-relaxed">
-                Try our intelligent voice assistant. Ask about solar
-                installations, electrical services, rebates, or book a
-                consultation — just like calling the office.
+                Sam is your AI receptionist. He knows your services, your
+                service area, rebate details, and can qualify leads and
+                book consultations — 24/7, even when you&apos;re on-site.
+              </p>
+              <p className="font-body text-sm text-white/30 mt-3 max-w-md leading-relaxed">
+                Give him a go — try asking some of the questions your
+                customers would typically call in with. See how he handles it.
               </p>
             </div>
 
-            {/* Services */}
-            <div className="grid grid-cols-2 gap-3">
-              {services.map((service, i) => (
-                <div
-                  key={service.title}
-                  className="glass-card rounded-2xl p-4 hover:border-amber-500/20 transition-all duration-300"
-                  style={{
-                    animation: `float-in 0.5s ease-out ${0.15 + i * 0.08}s forwards`,
-                    opacity: 0,
-                  }}
-                >
-                  <service.Icon className="w-5 h-5 text-amber-400 mb-3" />
-                  <h3 className="font-display text-sm font-semibold mb-1">
-                    {service.title}
-                  </h3>
-                  <p className="font-body text-xs text-white/40 leading-relaxed">
-                    {service.desc}
-                  </p>
-                </div>
-              ))}
+            {/* What Sam Can Do */}
+            <div className="glass-card rounded-2xl p-5 space-y-3">
+              <h3 className="font-display text-sm font-semibold text-amber-400">
+                What Sam handles for you
+              </h3>
+              <div className="space-y-2">
+                {[
+                  "Answers calls 24/7 — no more missed enquiries",
+                  "Qualifies callers by service type, location & urgency",
+                  "Explains rebates (STCs, VIC rebates, interest-free loans)",
+                  "Books consultation callbacks into your calendar",
+                  "Knows your full service area & all your service lines",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-2">
+                    <CheckIcon className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
+                    <span className="font-body text-sm text-white/60">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-              {["CEC Certified", "5-Star Rated", "Local Team"].map((label) => (
-                <div key={label} className="flex items-center gap-2">
-                  <CheckIcon className="w-4 h-4 text-emerald-400" />
-                  <span className="font-body text-xs text-white/50">
-                    {label}
+            {/* Try Asking */}
+            <div className="space-y-3">
+              <h3 className="font-display text-sm font-semibold text-white/70">
+                Try asking Sam...
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {suggestions.map((s) => (
+                  <span
+                    key={s}
+                    className="px-3 py-1.5 rounded-full text-xs font-body text-white/50 border border-white/[0.08] bg-white/[0.03] hover:border-amber-400/30 hover:text-amber-400/70 transition-all cursor-default"
+                  >
+                    &ldquo;{s}&rdquo;
                   </span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
@@ -457,7 +467,7 @@ export default function Home() {
                         Speak with Sam
                       </p>
                       <p className="font-body text-sm text-white/40 mt-1">
-                        Our AI assistant for Trentham Electrical & Solar
+                        Your AI receptionist — try him out
                       </p>
                     </div>
 
@@ -471,19 +481,7 @@ export default function Home() {
                       </span>
                     </button>
 
-                    {/* Suggestion Pills */}
-                    <div className="flex flex-wrap justify-center gap-2 pt-2">
-                      {suggestions.map((s) => (
-                        <span
-                          key={s}
-                          className="px-3 py-1 rounded-full text-[11px] font-body text-white/35 border border-white/[0.06] bg-white/[0.02]"
-                        >
-                          &ldquo;{s}&rdquo;
-                        </span>
-                      ))}
-                    </div>
-
-                    <p className="font-body text-[11px] text-white/20 pt-1">
+                    <p className="font-body text-[11px] text-white/20 pt-3">
                       Microphone access required · Free demo call
                     </p>
                   </div>
@@ -586,7 +584,7 @@ export default function Home() {
                         Call Complete
                       </p>
                       <p className="font-body text-sm text-white/40 mt-1">
-                        Thanks for trying our AI assistant
+                        What did you think? Give Sam another go or call us to chat.
                       </p>
                       <p className="font-body text-xs text-white/25 mt-2">
                         Duration: {formatDuration(callDuration)}
