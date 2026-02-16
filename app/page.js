@@ -165,6 +165,20 @@ export default function Home() {
 
     try {
       // Dynamic import so SDK only loads client-side
+      // Request microphone permission explicitly first
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        // Stop the stream — the SDK will create its own
+        stream.getTracks().forEach((track) => track.stop());
+      } catch (micErr) {
+        console.error("Microphone access denied:", micErr);
+        setError(
+          "Microphone access denied. Please allow microphone access in your browser and try again."
+        );
+        setCallState("idle");
+        return;
+      }
+
       const { RetellWebClient } = await import("retell-client-js-sdk");
       const client = new RetellWebClient();
       retellClientRef.current = client;
@@ -216,7 +230,6 @@ export default function Home() {
       // Start the WebRTC call
       await client.startCall({
         accessToken: data.access_token,
-        sampleRate: 24000,
       });
     } catch (err) {
       console.error("Failed to start call:", err);
