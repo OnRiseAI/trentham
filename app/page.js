@@ -358,13 +358,13 @@ export default function Home() {
               </h2>
 
               <p className="font-body text-base text-white/50 mt-5 max-w-md leading-relaxed">
-                Sam is your AI receptionist. He knows your services, your
+                Sam is your AI receptionist. She knows your services, your
                 service area, rebate details, and can qualify leads and
                 book consultations — 24/7, even when you&apos;re on-site.
               </p>
               <p className="font-body text-sm text-white/30 mt-3 max-w-md leading-relaxed">
-                Give him a go — try asking some of the questions your
-                customers would typically call in with. See how he handles it.
+                Give her a go — try asking some of the questions your
+                customers would typically call in with. See how she handles it.
               </p>
             </div>
 
@@ -419,13 +419,12 @@ export default function Home() {
               <div className="px-6 py-4 border-b border-white/5 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div
-                    className={`w-3 h-3 rounded-full ${
-                      callState === "active"
+                    className={`w-3 h-3 rounded-full ${callState === "active"
                         ? "bg-emerald-400 animate-pulse"
                         : callState === "connecting"
-                        ? "bg-amber-400 animate-pulse"
-                        : "bg-white/20"
-                    }`}
+                          ? "bg-amber-400 animate-pulse"
+                          : "bg-white/20"
+                      }`}
                   />
                   <span className="font-display text-sm font-medium">
                     {callState === "idle" && "Ready to call"}
@@ -467,7 +466,7 @@ export default function Home() {
                         Speak with Sam
                       </p>
                       <p className="font-body text-sm text-white/40 mt-1">
-                        Your AI receptionist — try him out
+                        Your AI receptionist — try her out
                       </p>
                     </div>
 
@@ -513,16 +512,14 @@ export default function Home() {
                     {/* Agent avatar + visualizer */}
                     <div className="flex flex-col items-center gap-3">
                       <div
-                        className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
-                          isAgentTalking
+                        className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 ${isAgentTalking
                             ? "bg-amber-400/20 border-2 border-amber-400/40 glow-active"
                             : "bg-white/5 border border-white/10"
-                        }`}
+                          }`}
                       >
                         <SunIcon
-                          className={`w-7 h-7 transition-colors ${
-                            isAgentTalking ? "text-amber-400" : "text-white/30"
-                          }`}
+                          className={`w-7 h-7 transition-colors ${isAgentTalking ? "text-amber-400" : "text-white/30"
+                            }`}
                         />
                       </div>
                       <AudioVisualizer isAgentTalking={isAgentTalking} />
@@ -537,16 +534,14 @@ export default function Home() {
                         {transcript.map((entry, i) => (
                           <div
                             key={i}
-                            className={`flex gap-2 ${
-                              entry.role === "agent" ? "" : "justify-end"
-                            }`}
+                            className={`flex gap-2 ${entry.role === "agent" ? "" : "justify-end"
+                              }`}
                           >
                             <div
-                              className={`max-w-[85%] rounded-xl px-3 py-2 ${
-                                entry.role === "agent"
+                              className={`max-w-[85%] rounded-xl px-3 py-2 ${entry.role === "agent"
                                   ? "bg-amber-400/10 text-white/80"
                                   : "bg-white/10 text-white/70"
-                              }`}
+                                }`}
                             >
                               <p className="font-body text-xs leading-relaxed">
                                 {entry.content}
